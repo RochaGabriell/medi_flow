@@ -1,0 +1,116 @@
+{% load static%}
+<header>
+    <nav class="navbar">
+        <!--         
+        <a class="navbar-brand nav-link" href="{% url 'home' %}">
+            <img src="{% static 'img/favicon_io/android-chrome-192x192.png' %}" alt="Logo" width="30">
+        </a> 
+        -->
+
+        <ul class="navbar-nav">
+            <li><a class="nav-link" href="{% url 'home' %}">Relevantes</a></li>
+            <li><a class="nav-link" href="{% url 'recent' %}">Recentes</a></li>
+        </ul>
+        </div>
+
+        <div class="navbar-center title-nav">
+            <p>DEV.DUCK</p>
+        </div>
+
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+            <button class="person-button" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" class="mdi-duck"
+                    viewBox="0 0 24 24" fill="white">
+                    <path
+                        d="M8.5,5A1.5,1.5 0 0,0 7,6.5A1.5,1.5 0 0,0 8.5,8A1.5,1.5 0 0,0 10,6.5A1.5,1.5 0 0,0 8.5,5M10,2A5,5 0 0,1 15,7C15,8.7 14.15,10.2 12.86,11.1C14.44,11.25 16.22,11.61 18,12.5C21,14 22,12 22,12C22,12 21,21 15,21H9C9,21 4,21 4,16C4,13 7,12 6,10C2,10 2,6.5 2,6.5C3,7 4.24,7 5,6.65C5.19,4.05 7.36,2 10,2Z" />
+                </svg>
+            </button>
+
+            <div id="dropdown">
+                <ul class="dropdown-content">
+                    <li class="single_line line_link_top">
+                        <div class="detail_user_dropdown">
+                            {% if user.is_superuser %}
+                            <img src="{% static 'global/img/admin.svg' %}" alt="Profile Image"
+                                class="detail_user_dropdown_img">
+                            {% elif perms.blog.add_post %}
+                            <img src="{% static 'global/img/programmer.svg' %}" alt="Profile Image"
+                                class="detail_user_dropdown_img">
+                            {% else %}
+                            <img src="{% static 'global/img/svg_dropdown.svg' %}" alt="Profile Image"
+                                class="detail_user_dropdown_img">
+                            {% endif %}
+                            <div class="detail_user_dropdown_text">
+                                <p class="detail_user_dropdown_name">{{ user.username }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <span class="line_divider"></span>
+                    {% if perms.blog.add_post or user.is_superuser %}
+                    <a href="{% url 'profile' %}" class="single_line line_link_center">
+                        <li>Minhas Postagens</li>
+                    </a>
+                    <a href="{% url 'new_post' %}" class="single_line line_link_center">
+                        <li>Novo Conteúdo</li>
+                    </a>
+                    {% if user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="single_line line_link_center">
+                        <li>Administração do Site</li>
+                    </a>
+                    <a href="{% url 'permission_list' %}" class="single_line line_link_center">
+                        <li>Solicitações</li>
+                    </a>
+                    {% endif %}
+                    {% else %}
+                    <a href="{% url 'profile' %}" class="single_line line_link_center">
+                        <li>Meu Perfil</li>
+                    </a>
+                    <a href="{% url 'request_permission' %}" class="single_line line_link_center">
+                        <li>Virar um DuckDev</li>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'profile_edit' %}" class="single_line line_link_center">
+                        <li>Editar Perfil</li>
+                    </a>
+                    <span class="line_divider"></span>
+                    <a href="{% url 'logout' %}" class="single_line line_link_bottom">
+                        <li>Sair</li>
+                    </a>
+                </ul>
+            </div>
+
+            {% else %}
+            <div class="auth-buttons">
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+                <a href="{% url 'register' %}" class="nav-link">Registrar</a>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="navbar-bottom">
+            <div class="module-box-form">
+                <div class="form-control">
+                    <select name="languagem-prog" id="select-language" onchange="redirectLang()">
+                        <option value="0" selected disabled>Linguagem de Programação</option>
+                        {% for lang in language %}
+                        <option value="{{ lang.id }}">{{ lang }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% for module in modules %}
+                <div class="form-control">
+                    <select name="materia" class="select-subjects" onchange="redirectSub()">
+                        <option value="0" selected disabled>{{ module }}</option>
+                        {% for sub in grid %}
+                        {% if sub.id_module == module %}
+                        <option value="{{ sub.id }}">{{ sub.id_subject }}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+</header>
