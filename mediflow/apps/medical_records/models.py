@@ -26,8 +26,8 @@ class MedicalRecordModel(models.Model):
         blank=True,
         null=True
     )
-    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
-    updated_at = models.DateTimeField(_("Updated At"), auto_now=True)
+    created_at = models.DateTimeField(_('Created At'), auto_now_add=True)
+    updated_at = models.DateTimeField(_('Updated At'), auto_now=True)
 
     class Meta:
         verbose_name = _('Medical Record')

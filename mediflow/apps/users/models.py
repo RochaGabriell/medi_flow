@@ -19,13 +19,11 @@ class UserModel(AbstractUser):
     )
 
 
-class DoctorModel(UserModel):
+class DoctorModel(models.Model):
 
     user = models.OneToOneField(
         UserModel,
         on_delete=models.PROTECT,
-        related_name='doctor_user',
-        parent_link=True,
     )
     crm = models.CharField(_('CRM'), max_length=20)
     especiality = models.CharField(_('Especiality'), max_length=255)
