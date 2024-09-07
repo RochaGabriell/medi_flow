@@ -18,6 +18,7 @@ import os
 # Initialise environment variables
 load_dotenv()
 
+
 def get_secret(setting):
     """Get the secret variable or return explicit exception."""
     try:
@@ -25,6 +26,7 @@ def get_secret(setting):
     except KeyError:
         error_msg = "Set the {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,12 +57,12 @@ INSTALLED_APPS = [
     # Third-party
 
     # Local
-    'mediflow.apps.appointments', # Pacientes
-    'mediflow.apps.billing', # Faturamento e Pagamentos
-    'mediflow.apps.inventory', # Gestão de Recursos e Estoque
-    'mediflow.apps.medical_records', # Prontuários
-    'mediflow.apps.patients', # Pacientes
-    'mediflow.apps.users', # Usuários
+    'mediflow.apps.appointments',  # Pacientes
+    'mediflow.apps.billing',  # Faturamento e Pagamentos
+    'mediflow.apps.inventory',  # Gestão de Recursos e Estoque
+    'mediflow.apps.medical_records',  # Prontuários
+    'mediflow.apps.patients',  # Pacientes
+    'mediflow.apps.users',  # Usuários
 ]
 
 MIDDLEWARE = [
@@ -144,10 +146,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "mediflow/base_static",
+    BASE_DIR / 'mediflow/base_static',
 ]
 
-STATIC_ROOT = BASE_DIR / "static"  # collectstatic
+STATIC_ROOT = BASE_DIR / 'static'   # collectstatic
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -155,3 +157,7 @@ STATIC_ROOT = BASE_DIR / "static"  # collectstatic
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.UserModel'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'home'

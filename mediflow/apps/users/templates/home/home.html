@@ -1,0 +1,78 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="text-center mb-4">Bem-vindo ao Mediflow</h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>
+        A <strong>Clínica Saúde e Vida</strong>, localizada no coração da cidade de São Paulo, foi fundada em 1998
+        pelo Dr. João Martins, com a missão de oferecer cuidados médicos personalizados e de alta qualidade. Ao longo
+        dos anos, a clínica cresceu, expandindo seus serviços para diversas especialidades médicas, como cardiologia,
+        ortopedia, pediatria, entre outras.
+      </p>
+      <p>
+        Em 2024, a Clínica Saúde e Vida deu um grande passo em direção à inovação com a implementação do sistema
+        <strong>Mediflow</strong>. Com ele, a gestão de pacientes, consultas, prontuários e recursos nunca foi tão
+        simples e eficiente.
+      </p>
+      <p>
+        Segundo o Dr. João, "o Mediflow transformou a maneira como gerenciamos nossa clínica. Agora podemos focar no
+        que realmente importa: nossos pacientes."
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="{% static 'global/img/clinica.jpg' %}" alt="Clínica Saúde e Vida" class="img-fluid rounded">
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{% static 'global/img/prontuario.png' %}" alt="Prontuário Eletrônico" class="img-fluid rounded mb-4">
+    </div>
+
+    <div class="col-md-6">
+      <h2>Um Sistema Completo para Gestão Médica</h2>
+      <p>
+        Com o Mediflow, a <strong>Clínica Saúde e Vida</strong> tem acesso a um prontuário eletrônico seguro e acessível
+        de qualquer lugar. Médicos podem consultar o histórico médico dos pacientes, registrar novas consultas e anexar
+        exames com facilidade. Além disso, a visualização de calendário e agendamentos facilita a vida de médicos e
+        recepcionistas, tornando o fluxo de trabalho muito mais ágil.
+      </p>
+      <p>
+        "Antes, nossa equipe tinha que lidar com pilhas de papel e agendas complicadas. Agora, com o Mediflow, temos
+        tudo ao nosso alcance em um único sistema. É incrível como a tecnologia pode melhorar o atendimento médico,"
+        relata a recepcionista Ana Paula.
+      </p>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2>O Futuro da Gestão de Clínicas</h2>
+      <p>
+        A implementação do Mediflow trouxe inúmeros benefícios para a Clínica Saúde e Vida, desde a otimização do tempo
+        de atendimento até a redução de erros administrativos. Agora, a clínica está pronta para expandir ainda mais,
+        com planos de abrir novas unidades em outras cidades.
+      </p>
+      <p>
+        "Estamos empolgados com o que o futuro nos reserva. O Mediflow é mais do que um sistema de gestão; é uma parte
+        vital do nosso crescimento e sucesso," diz o Dr. João com entusiasmo.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img src="{% static 'global/img/medico.webp' %}" alt="Médico usando sistema" class="img-fluid rounded">
+    </div>
+  </div>
+</div>
+{% endblock %}

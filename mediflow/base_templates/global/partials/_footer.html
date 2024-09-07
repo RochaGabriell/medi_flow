@@ -1,35 +1,48 @@
 {% load static%}
-<footer>
-    <div class="footer-box-top">
-        <div class="footer-area-left">
-            <h1>Compartilhe seus conhecimento e aprendizados</h1>
-            <p>Crie uma postagem, atraia alunos de todo o instituto e ganhe notoriedade.</p>
-        </div>
+<footer class="bg-light text-center text-lg-start mt-4">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Mediflow</h5>
+                <p>
+                    Soluções inteligentes para a gestão do seu consultório.
+                    Simplifique sua rotina com nossa plataforma eficiente.
+                </p>
+            </div>
 
-        <div class="footer-area-right">
-            <a href="{% url 'new_post' %}">
-                <button>Faça uma Postagem</button>
-            </a>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links úteis</h5>
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="" class="text-dark">Home</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-dark">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="" class="text-dark">Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Redes Sociais</h5>
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#" class="text-dark">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-dark">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-dark">LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
-    <span class="separator"></span>
-
-    <div class="footer-box-bottom">
-        <div class="logo-footer logo-copyright">
-            <img width="60" src="{% static 'global/img/android-chrome-192x192.png' %}" alt="duck">
-        </div>
-
-        <div class="link-cont">
-            <a href="{% url 'contact' %}" class="nav-link">Contato</a>
-            <a href="https://github.com/RochaGabriell/ProjetoIntegradorI" class="nav-link" target="_blank">GitHub</a>
-            <a href="{% url 'editor_guide' %}" class="nav-link" target="_blank">Guia</a>
-            <a href="{% url 'about' %}" class="nav-link">Sobre</a>
-            <a href="{% url 'terms' %}" class="nav-link">Termos</a>
-        </div>
-
-        <div class="copyright-text logo-copyright">
-            <p>&copy; 2023 Dev.Duck, Inc.</p>
-        </div>
+    <div class="footer-box-bottom text-center p-3 bg-dark text-white">
+        <p>&copy; 2024 Mediflow. Todos os direitos reservados.</p>
     </div>
 </footer>
