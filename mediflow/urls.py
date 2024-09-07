@@ -23,6 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mediflow.apps.users.urls')),
+    path('patients/', include('mediflow.apps.patients.urls')),
     re_path(
         r'^static/(?P<path>.*)$',
         serve,

@@ -1,0 +1,47 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="mb-4">Pacientes</h1>
+  <div class="d-flex justify-content-between mb-3">
+    <h2>Lista de Pacientes</h2>
+    <a href="{% url 'patient_create' %}" class="btn btn-primary">Adicionar Novo Paciente</a>
+  </div>
+
+  {% if object_list %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de Nascimento</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for patient in object_list %}
+      <tr>
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.cpf }}</td>
+        <td>{{ patient.birth_date }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.phone }}</td>
+        <td>
+          <a href="{% url 'patient_detail' patient.pk %}" class="btn btn-sm btn-primary">Detalhes</a>
+          <a href="{% url 'patient_edit' patient.pk %}" class="btn btn-sm btn-warning">Editar</a>
+          <a href="{% url 'patient_delete' patient.pk %}" class="btn btn-sm btn-danger">Excluir</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>Nenhum paciente encontrado.</p>
+  {% endif %}
+</div>
+{% endblock %}

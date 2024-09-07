@@ -1,0 +1,64 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card p-4 shadow-sm">
+    <h1 class="mb-4">Detalhes do Usuário</h1>
+
+    <div class="list-group mb-4">
+      <div class="list-group-item">
+        <strong>Usuário:</strong> {{ object.user.username }}
+      </div>
+      <div class="list-group-item">
+        <strong>Email:</strong> {{ object.user.email }}
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="card p-4 shadow-sm">
+    <div class="list-group">
+      <h1 class="mb-4">Detalhes do Paciente</h1>
+      <div class="list-group-item">
+        <strong>Nome:</strong> {{ object.name }}
+      </div>
+      <div class="list-group-item">
+        <strong>CPF:</strong> {{ object.cpf }}
+      </div>
+      <div class="list-group-item">
+        <strong>Data de Nascimento:</strong> {{ object.birth_date }}
+      </div>
+      <div class="list-group-item">
+        <strong>Gênero:</strong> {{ object.get_gender_display }}
+      </div>
+      <div class="list-group-item">
+        <strong>Telefone:</strong> {{ object.phone }}
+      </div>
+      <div class="list-group-item">
+        <strong>Email:</strong> {{ object.email }}
+      </div>
+      <div class="list-group-item">
+        <strong>Endereço:</strong> {{ object.address }}
+      </div>
+      <div class="list-group-item">
+        <strong>Histórico Médico:</strong> {{ object.medical_history }}
+      </div>
+      <div class="list-group-item">
+        <strong>Observações:</strong> {{ object.observations }}
+      </div>
+      <div class="list-group-item">
+        <strong>Criado em:</strong> {{ object.created_at }}
+      </div>
+      <div class="list-group-item">
+        <strong>Atualizado em:</strong> {{ object.updated_at }}
+      </div>
+    </div>
+
+    <a href="{% url 'patient_list' %}" class="btn btn-secondary mt-3">Voltar para a Lista de Pacientes</a>
+  </div>
+</div>
+{% endblock %}
