@@ -40,7 +40,7 @@ class DoctorModel(models.Model):
         verbose_name_plural = _('Médicos')
 
     def __str__(self):
-        return f'{self.user.username} - {self.crm}'
+        return f'{self.user.username} - {self.especiality}'
 
 
 class DoctorAvailabilityModel(models.Model):

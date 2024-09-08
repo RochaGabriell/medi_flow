@@ -22,6 +22,7 @@
 
   <div class="card p-4 shadow-sm">
     <div class="list-group">
+      <a href="{% url 'medical_record_list' object.id %}" class="btn btn-secondary mt-3">Ver Prontuários</a>
       <h1 class="mb-4">Detalhes do Paciente</h1>
       <div class="list-group-item">
         <strong>Nome:</strong> {{ object.name }}

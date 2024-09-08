@@ -41,7 +41,11 @@
     </tbody>
   </table>
   {% else %}
-  <p>Nenhum paciente encontrado.</p>
+  <div class="col-12">
+    <div class="alert alert-info">
+      Nenhum paciente encontrado.
+    </div>
+  </div>
   {% endif %}
 </div>
 {% endblock %}

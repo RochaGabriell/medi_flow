@@ -1,0 +1,39 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block style %}
+<style>
+  .btn {
+    margin-right: 10px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card p-4 shadow-sm">
+    <h1 class="mb-4">Prontuário de {{ medical_record.name }}</h1>
+
+    <div class="mb-3">
+      <p><strong>Médico:</strong>
+        {{ medical_record.doctor.user }} - {{medical_record.doctor.especiality}}
+      </p>
+      <p><strong>Data:</strong> {{ medical_record.created_at|date:"Y-m-d H:i" }}</p>
+      <p><strong>Diagnóstico:</strong> {{ medical_record.diagnosis }}</p>
+      <p><strong>Prescrição:</strong> {{ medical_record.prescription }}</p>
+
+      {% if medical_record.documents %}
+      <p><strong>Documentos:</strong> <a href="{{ medical_record.documents.url }}" class="btn btn-primary"
+          target="_blank">Baixar Documento</a></p>
+      {% endif %}
+
+      <a href="{% url 'medical_record_update' medical_record.pk %}" class="btn btn-warning">Editar</a>
+      <a href="{% url 'medical_record_delete' medical_record.pk %}" class="btn btn-danger">Excluir</a>
+      <a href="{% url 'medical_record_list' medical_record.patient.pk %}" class="btn btn-secondary">Voltar para a
+        lista</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -25,11 +25,18 @@ urlpatterns = [
     path('', include('mediflow.apps.users.urls')),
     path('patients/', include('mediflow.apps.patients.urls')),
     path('appointments/', include('mediflow.apps.appointments.urls')),
+    path('medical-records/', include('mediflow.apps.medical_records.urls')),
     re_path(
         r'^static/(?P<path>.*)$',
         serve,
         {'document_root': settings.STATIC_ROOT},
     ),
+    re_path(
+        r'^media/(?P<path>.*)$',
+        serve,
+        {'document_root': settings.MEDIA_ROOT},
+    ),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,17 +11,18 @@ class MedicalRecordModel(models.Model):
         PatientModel,
         on_delete=models.CASCADE,
         related_name='medical_records',
-        verbose_name=_('Patient')
+        verbose_name=_('Paciente')
     )
     doctor = models.ForeignKey(
         DoctorModel,
         on_delete=models.CASCADE,
         related_name='medical_records',
-        verbose_name=_('Doctor')
+        verbose_name=_('Médico')
     )
-    diagnosis = models.TextField(_('Diagnosis'))
-    prescription = models.TextField(_('Prescription'))
+    diagnosis = models.TextField(_('Diagnóstico'))
+    prescription = models.TextField(_('Prescrição'))
     documents = models.FileField(
+        _('Documentos'),
         upload_to='medical_records/',
         blank=True,
         null=True
@@ -34,4 +35,4 @@ class MedicalRecordModel(models.Model):
         verbose_name_plural = _('Medical Records')
 
     def __str__(self):
-        return f'{self.patient} - {self.date}'
+        return f'{self.patient.name} - {self.created_at.strftime("%Y-%m-%d")}'
