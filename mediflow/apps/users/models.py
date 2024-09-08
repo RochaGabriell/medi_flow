@@ -30,7 +30,7 @@ class DoctorModel(models.Model):
 
     user = models.OneToOneField(
         UserModel,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
     )
     crm = models.CharField(_('CRM'), max_length=20)
     especiality = models.CharField(_('Especialidade'), max_length=255)
@@ -46,7 +46,7 @@ class DoctorModel(models.Model):
 class DoctorAvailabilityModel(models.Model):
     doctor = models.ForeignKey(
         DoctorModel,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name='availabilities',
         verbose_name=_('Médico')
     )

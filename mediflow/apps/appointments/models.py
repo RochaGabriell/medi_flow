@@ -9,13 +9,13 @@ class AppointmentModel(models.Model):
 
     patient = models.ForeignKey(
         PatientModel,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name='appointments_patient',
         verbose_name=_('Paciente'),
     )
     doctor = models.ForeignKey(
         DoctorModel,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name='appointments_doctor',
         verbose_name=_('Médico'),
     )

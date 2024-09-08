@@ -73,4 +73,4 @@ class DoctorAppointmentsView(ListView):
 class AppointmentDeleteView(DeleteView):
     model = AppointmentModel
     template_name = 'appointment_confirm_delete.html'
-    success_url = reverse_lazy('doctor_appointments')
+    success_url = reverse_lazy('appointment_availability')

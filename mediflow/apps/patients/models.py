@@ -8,7 +8,7 @@ class PatientModel(models.Model):
 
     user = models.OneToOneField(
         UserModel,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         verbose_name=_('Usuário'),
     )
     cpf = models.CharField(_('CPF'), max_length=11, unique=True)

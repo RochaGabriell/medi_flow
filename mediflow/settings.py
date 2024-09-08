@@ -43,7 +43,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# CSRF_TRUSTED_ORIGINS = ["https://mediflow.herokuapp.com/"]
+CSRF_TRUSTED_ORIGINS = ["https://*.ngrok-free.app/"]
 
 # Application definition
 
