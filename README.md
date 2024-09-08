@@ -1,7 +1,3 @@
-Aqui está um exemplo de README para o projeto MediFlow:
-
----
-
 # MediFlow
 
 ## Projeto de Desenvolvimento de Software: Sistema de Gerenciamento de Consultório Médico
@@ -105,5 +101,3 @@ O objetivo do MediFlow é fornecer uma plataforma que permita a gestão eficient
    ```
 
 7. Acesse o sistema em: `http://127.0.0.1:8000/`
-
----
