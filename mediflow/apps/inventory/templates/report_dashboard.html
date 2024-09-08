@@ -1,0 +1,26 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} Dashboard de Relatórios {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card p-4 shadow-sm">
+    <h1 class="mb-4">Dashboard de Relatórios</h1>
+
+    <ul class="list-group mb-4">
+      <li class="list-group-item">
+        <strong>Total de Consultas:</strong> {{ total_appointments }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total de Pacientes Atendidos:</strong> {{ total_patients }}
+      </li>
+      <li class="list-group-item">
+        <strong>Total de Itens no Estoque:</strong> {{ total_inventory_items }}
+      </li>
+    </ul>
+
+    <a href="{% url 'inventory_list' %}" class="btn btn-primary">Gerenciar Estoque</a>
+  </div>
+</div>
+{% endblock %}

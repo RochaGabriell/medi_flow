@@ -4,7 +4,8 @@ from .views import (
     InventoryDetailView,
     InventoryCreateView,
     InventoryUpdateView,
-    InventoryDeleteView
+    InventoryDeleteView,
+    report_dashboard
 )
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
         InventoryDeleteView.as_view(),
         name='inventory_delete'
     ),
+    path('reports/dashboard/', report_dashboard, name='report_dashboard'),
 ]

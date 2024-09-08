@@ -27,7 +27,7 @@
                         <a class="nav-link" href="{% url 'inventory_list' %}">Recursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Relatórios</a>
+                        <a class="nav-link" href="{% url 'report_dashboard' %}">Relatórios</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -36,7 +36,7 @@
                             {{ request.user.username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
+                            <!-- <li>
                                 <a class="dropdown-item" href="{% url 'admin:index' %}">
                                     Meu Perfil
                                 </a>
@@ -48,7 +48,7 @@
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
-                            </li>
+                            </li> -->
                             <li>
                                 <form action="{% url 'logout' %}" method="post">
                                     {% csrf_token %}

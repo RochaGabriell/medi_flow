@@ -4,10 +4,10 @@ from django.utils.translation import gettext_lazy as _
 
 class InventoryModel(models.Model):
 
-    name = models.CharField(_('Name'), max_length=255)
-    quantity = models.PositiveIntegerField(_('Quantity'))
+    name = models.CharField(_('Nome'), max_length=255)
+    quantity = models.PositiveIntegerField(_('Quantidade'), default=0)
     minimum_quantity = models.PositiveIntegerField(
-        _('Minimum Quantity'),
+        _('Quantidade Mínima'),
         default=0
     )
     created_at = models.DateTimeField(_('Created At'), auto_now_add=True)

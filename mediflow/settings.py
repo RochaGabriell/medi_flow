@@ -58,7 +58,6 @@ INSTALLED_APPS = [
 
     # Local
     'mediflow.apps.appointments',  # Pacientes
-    'mediflow.apps.billing',  # Faturamento e Pagamentos
     'mediflow.apps.inventory',  # Gestão de Recursos e Estoque
     'mediflow.apps.medical_records',  # Prontuários
     'mediflow.apps.patients',  # Pacientes
