@@ -1,0 +1,53 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="mb-4">Disponibilidade Futuras dos Médicos</h1>
+  <div class="text-center mb-4">
+    <a href="{% url 'appointment_create' %}" class="btn btn-primary mt-3">Agendar nova consulta</a>
+  </div>
+
+  <div class="row">
+    {% if available_dates %}
+    {% for doctor, dates in available_dates.items %}
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+            Dr(a). {{ doctor }}
+          </div>
+          <a href="{% url 'doctor_appointments' doctor.id %}" class="btn btn-sm btn-primary">
+            Ver consultas agendadas
+          </a>
+        </div>
+        <ul class="list-group list-group-flush">
+          {% for date in dates %}
+          <li class="list-group-item">{{ date }}</li>
+          {% empty %}
+          <li class="list-group-item">Nenhuma data disponível.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+      <div class="alert alert-info">
+        Nenhuma disponibilidade encontrada.
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="col-12">
+      <div class="alert alert-info">
+        Nenhuma disponibilidade encontrada.
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+
+</div>
+{% endblock %}

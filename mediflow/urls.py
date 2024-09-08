@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mediflow.apps.users.urls')),
     path('patients/', include('mediflow.apps.patients.urls')),
+    path('appointments/', include('mediflow.apps.appointments.urls')),
     re_path(
         r'^static/(?P<path>.*)$',
         serve,

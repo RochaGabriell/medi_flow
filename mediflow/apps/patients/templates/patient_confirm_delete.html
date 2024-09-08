@@ -5,19 +5,16 @@
 
 {% block content %}
 <div class="container my-5">
-  <div class="card p-4 shadow-sm">
-    <h1 class="mb-4">Tem certeza de que deseja excluir "{{ object.name }}"?</h1>
+  <h1 class="mb-4">Confirmar Exclusão</h1>
 
-    <div class="d-flex justify-content-around">
-      <form method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Confirm</button>
-      </form>
-
-      <button class="btn btn-secondary">
-        <a href="{% url 'patient_list' %}" class="text-white text-decoration-none">Cancelar</a>
-      </button>
-    </div>
+  <div class="alert alert-warning">
+    <p>Tem certeza de que deseja excluir <strong>{{ object.name }}</strong>?</p>
   </div>
+
+  <form method="post"></form>
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+  <a href="{% url 'patient_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
 </div>
 {% endblock %}

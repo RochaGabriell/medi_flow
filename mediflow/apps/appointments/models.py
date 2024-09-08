@@ -11,17 +11,18 @@ class AppointmentModel(models.Model):
         PatientModel,
         on_delete=models.PROTECT,
         related_name='appointments_patient',
-        verbose_name=_('Patient'),
+        verbose_name=_('Paciente'),
     )
     doctor = models.ForeignKey(
         DoctorModel,
         on_delete=models.PROTECT,
         related_name='appointments_doctor',
-        verbose_name=_('Doctor'),
+        verbose_name=_('Médico'),
     )
-    description = models.TextField()
-    notes = models.TextField(_('Notes'), blank=True, null=True)
-    appointment_date = models.DateField(_('Appointment Date'))
+    description = models.TextField(_('Descrição'), blank=True, null=True)
+    notes = models.TextField(_('Nota'), blank=True, null=True)
+    appointment_date = models.DateField(_('Data da Consulta'))
+    appointment_time = models.TimeField(_('Hora da Consulta'))
     created_at = models.DateTimeField(_('Created At'), auto_now_add=True)
     updated_at = models.DateTimeField(_('Updated At'), auto_now=True)
 
