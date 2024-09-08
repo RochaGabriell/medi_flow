@@ -26,6 +26,7 @@ urlpatterns = [
     path('patients/', include('mediflow.apps.patients.urls')),
     path('appointments/', include('mediflow.apps.appointments.urls')),
     path('medical-records/', include('mediflow.apps.medical_records.urls')),
+    path('inventory/', include('mediflow.apps.inventory.urls')),
     re_path(
         r'^static/(?P<path>.*)$',
         serve,

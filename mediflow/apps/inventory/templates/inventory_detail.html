@@ -1,0 +1,22 @@
+{% extends 'global/base.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h1 class="mb-4">Detalhes do Item</h1>
+
+  <div class="card p-4 shadow-sm">
+    <p><strong>Nome:</strong> {{ inventory_item.name }}</p>
+    <p><strong>Quantidade:</strong> {{ inventory_item.quantity }}</p>
+    <p><strong>Quantidade Mínima:</strong> {{ inventory_item.minimum_quantity }}</p>
+
+    <div class="mt-3">
+      <a href="{% url 'inventory_update' inventory_item.pk %}" class="btn btn-primary">Editar</a>
+      <a href="{% url 'inventory_delete' inventory_item.pk %}" class="btn btn-danger">Excluir</a>
+      <a href="{% url 'inventory_list' %}" class="btn btn-secondary">Voltar para a lista</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
