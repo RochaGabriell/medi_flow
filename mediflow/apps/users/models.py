@@ -23,7 +23,7 @@ class UserModel(AbstractUser):
         verbose_name_plural = _('Usuários')
 
     def __str__(self):
-        return self.username
+        return f'{self.first_name} {self.last_name}'
 
 
 class DoctorModel(models.Model):
@@ -40,7 +40,7 @@ class DoctorModel(models.Model):
         verbose_name_plural = _('Médicos')
 
     def __str__(self):
-        return f'{self.user.username} - {self.especiality}'
+        return f'{self.user.first_name} {self.user.last_name} - {self.especiality}'
 
 
 class DoctorAvailabilityModel(models.Model):

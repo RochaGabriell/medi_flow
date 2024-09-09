@@ -15,7 +15,7 @@ class PatientModel(models.Model):
     name = models.CharField(_('Nome'), max_length=255)
     birth_date = models.DateField(_('Data de Nascimento'))
     gender = models.CharField(
-        _('Gender'),
+        _('Genêro'),
         max_length=1,
         choices=[
             ('M', _('Masculino')),
